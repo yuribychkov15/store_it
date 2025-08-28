@@ -1,72 +1,161 @@
+/* Import Tailwind core */
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --radius: 0.5rem;
-}
-
-@theme inline {
+/* ================================
+   THEME TOKENS
+   ================================ */
+@theme {
   /* Colors */
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  
-  /* Brand colors */
-  --color-brand: #FA7275;
-  --color-brand-100: #EA6365;
-  
-  /* Custom colors */
-  --color-red: #FF7474;
-  --color-error: #b80000;
-  --color-green: #3DD9B3;
-  --color-blue: #56B8FF;
-  --color-pink: #EEA8FD;
-  --color-orange: #F9AB72;
-  
-  /* Light theme colors */
-  --color-light-100: #333F4E;
-  --color-light-200: #A3B2C7;
-  --color-light-300: #F2F5F9;
-  --color-light-400: #F2F4F8;
-  
-  /* Dark theme colors */
-  --color-dark-100: #04050C;
-  --color-dark-200: #131524;
-  
-  /* Fonts */
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-poppins: var(--font-poppins);
-  
-  /* Border radius */
-  --radius-lg: var(--radius);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-sm: calc(var(--radius) - 4px);
-  
-  /* Box shadows */
-  --shadow-drop-1: 0px 10px 30px 0px rgba(66, 71, 97, 0.1);
-  --shadow-drop-2: 0 8px 30px 0 rgba(65, 89, 214, 0.3);
-  --shadow-drop-3: 0 8px 30px 0 rgba(65, 89, 214, 0.1);
-  
-  /* Keyframes */
-  --keyframes-caret-blink: {
-    0%, 70%, 100%: { opacity: 1 }
-    20%, 50%: { opacity: 0 }
-  }
-  
-  /* Animations */
-  --animate-caret-blink: caret-blink 1.25s ease-out infinite;
+  --color-dark-200: #1e2238;
+  --color-light-100: #a1a1aa;
+  --color-light-200: #d4d4d8;
+  --color-light-300: #e4e4e7;
+  --color-light-400: #f4f4f5;
+  --color-brand: #fa7275;
+  --color-brand-100: #fb8c8f;
+  --color-error: #ef4444;
+
+  /* Shadows */
+  --shadow-drop-1: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-drop-2: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-drop-3: 0 10px 15px rgba(0,0,0,0.15);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ================================
+   BASE STYLES
+   ================================ */
+@utility smooth-scroll {
+  @apply scroll-smooth;
+}
+
+@utility page-body {
+  @apply bg-white text-dark-200 min-h-screen;
+}
+
+/* ================================
+   SCROLLBARS
+   ================================ */
+@utility custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 3px;
+    border-radius: 50px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #e5e7eb;
+    border-radius: 50px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--color-brand);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@utility remove-scrollbar {
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+}
+
+/* ================================
+   TYPOGRAPHY SCALE
+   ================================ */
+@utility h1 { @apply text-[34px] leading-[42px] font-bold; }
+@utility h2 { @apply text-[24px] leading-[36px] font-bold; }
+@utility h3 { @apply text-[20px] leading-[28px] font-semibold; }
+@utility h4 { @apply text-[18px] leading-[20px] font-medium; }
+@utility h5 { @apply text-[16px] leading-[24px] font-semibold; }
+
+@utility subtitle-1 { @apply text-[16px] leading-[24px] font-medium; }
+@utility subtitle-2 { @apply text-[14px] leading-[20px] font-semibold; }
+
+@utility body-1 { @apply text-[16px] leading-[24px] font-normal; }
+@utility body-2 { @apply text-[14px] leading-[20px] font-normal; }
+
+@utility button { @apply text-[14px] leading-[20px] font-medium; }
+@utility caption { @apply text-[12px] leading-[16px] font-normal; }
+@utility overline { @apply text-[10px] leading-[14px] font-normal; }
+
+/* ================================
+   HELPERS
+   ================================ */
+@utility container {
+  @apply mx-auto max-w-7xl px-5;
+}
+@utility flex-center {
+  @apply flex items-center justify-center;
+}
+@utility primary-btn {
+  @apply bg-brand hover:bg-brand-100 transition-all rounded-full button;
+}
+
+/* ================================
+   SHADCN OVERRIDES
+   ================================ */
+@utility shad-no-focus {
+  @apply outline-none ring-0 ring-offset-0 focus:outline-none focus:ring-0 focus:ring-transparent;
+}
+@utility shad-input {
+  @apply border-none shadow-none p-0 placeholder:text-light-200 body-2 shad-no-focus;
+}
+@utility shad-form-item {
+  @apply flex h-[78px] flex-col justify-center rounded-xl border border-light-300 px-4 shadow-drop-1;
+}
+@utility shad-form-label {
+  @apply text-light-100 pt-2 body-2 w-full;
+}
+@utility shad-form-message {
+  @apply text-red-500 body-2 ml-4;
+}
+@utility shad-alert-dialog {
+  @apply space-y-4 max-w-[95%] sm:w-fit rounded-xl md:rounded-[30px] px-4 md:px-8 py-10 bg-white outline-none;
+}
+@utility shad-submit-btn {
+  @apply bg-brand button hover:bg-brand-100 transition-all rounded-full;
+}
+@utility shad-otp {
+  @apply w-full flex gap-1 sm:gap-2 justify-between;
+}
+@utility shad-otp-slot {
+  @apply text-[40px] font-medium rounded-xl ring-brand shadow-drop-1 text-brand-100 flex justify-center border-2 border-light-300 size-12 md:size-16;
+}
+
+/* ================================
+   COMPONENT UTILITIES (examples)
+   ================================ */
+@utility main-content {
+  @apply remove-scrollbar h-full flex-1 overflow-auto bg-light-400 px-5 py-7 sm:mr-7 sm:rounded-[30px] md:mb-7 md:px-9 md:py-10;
+}
+@utility dashboard-summary-card {
+  @apply relative mt-6 rounded-[20px] bg-white p-5 transition-all hover:scale-105;
+}
+@utility dashboard-recent-files {
+  @apply h-full rounded-[20px] xl:h-[654px] custom-scrollbar overflow-auto bg-white p-5 xl:p-7;
+}
+@utility file-card {
+  @apply flex cursor-pointer flex-col gap-6 rounded-[18px] bg-white p-5 shadow-sm transition-all hover:shadow-drop-3;
+}
+@utility chart {
+  @apply flex items-center rounded-[20px] bg-brand p-2 text-white md:flex-col xl:flex-row;
+}
+@utility uploader-button {
+  @apply primary-btn h-[52px] gap-2 px-10 shadow-drop-1;
+}
+@utility header {
+  @apply hidden items-center justify-between gap-5 p-5 sm:flex lg:py-7 xl:gap-10;
+}
+@utility mobile-header {
+  @apply flex h-[60px] justify-between px-5 sm:hidden;
+}
+@utility sidebar {
+  @apply remove-scrollbar hidden h-screen w-[90px] flex-col overflow-auto px-5 py-7 sm:flex lg:w-[280px] xl:w-[325px];
+}
+@utility shad-active {
+  @apply bg-brand text-white shadow-drop-2;
 }
