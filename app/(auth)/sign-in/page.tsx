@@ -1,6 +1,6 @@
 
-export default function SignIn() {
-    return (
-        <h1>Sign-In Page</h1>
-    )
-}
+const SignIn = () => {
+    return <div>Sign In</div>
+}   
+
+export default SignIn
