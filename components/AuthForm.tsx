@@ -21,7 +21,6 @@ const formSchema = z.object({
     username: z.string().min(2, {
         message: "Username must be at least 2 characters."
     }),
-    password: z.string().min(8, { message: "Password is not valid " }).max(20, { message: "Password exceeds 20 characters "})
 })
 
 
@@ -33,7 +32,6 @@ const AuthForm = ({ type }: { type: FormType }) => {
     resolver: zodResolver(formSchema),
     defaultValues: {
         username: "",
-        password: "",
     }
   })
 
@@ -57,19 +55,6 @@ const AuthForm = ({ type }: { type: FormType }) => {
                         <FormDescription>
                             This is your public display name.
                         </FormDescription>
-                        <FormMessage />
-                    </FormItem>
-                )}
-            />
-            <FormField 
-                control={form.control}
-                name="password"
-                render={({ field }) => (
-                    <FormItem>
-                        <FormLabel>Password</FormLabel>
-                        <FormControl>
-                            <Input placeholder="shadcn" {...field} />
-                        </FormControl>
                         <FormMessage />
                     </FormItem>
                 )}
