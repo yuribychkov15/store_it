@@ -18,7 +18,7 @@ import {
 import { Input } from "@/components/ui/input"
 
 const formSchema = z.object({
-    username: z.string().min(2, {
+    fullName: z.string().min(2, {
         message: "Username must be at least 2 characters."
     }),
 })
@@ -31,7 +31,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-        username: "",
+        fullName: "",
     }
   })
 
@@ -45,7 +45,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
           <h1 className="form-title">{type === "sign-in" ? "Sign-In" : "Sign-Up"}</h1>
             <FormField 
                 control={form.control}
-                name="username"
+                name="fullName"
                 render={({ field }) => (
                     <FormItem>
                         <FormLabel>Username</FormLabel>
