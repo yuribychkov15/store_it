@@ -17,9 +17,9 @@
   --color-red: #ef4444;
 
   /* Shadows */
-  --shadow-drop-1: 0 1px 2px rgba(0,0,0,0.05);
-  --shadow-drop-2: 0 4px 6px rgba(0,0,0,0.1);
-  --shadow-drop-3: 0 10px 15px rgba(0,0,0,0.15);
+  --shadow-drop-1: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-drop-2: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-drop-3: 0 10px 15px rgba(0, 0, 0, 0.15);
 
   /* Radius (keeping from your current setup) */
   --radius: 0.625rem;
@@ -88,21 +88,45 @@
 /* ================================
    TYPOGRAPHY SCALE
    ================================ */
-@utility h1 { @apply text-[34px] leading-[42px] font-bold; }
-@utility h2 { @apply text-[24px] leading-[36px] font-bold; }
-@utility h3 { @apply text-[20px] leading-[28px] font-semibold; }
-@utility h4 { @apply text-[18px] leading-[20px] font-medium; }
-@utility h5 { @apply text-[16px] leading-[24px] font-semibold; }
+@utility h1 {
+  @apply text-[34px] leading-[42px] font-bold;
+}
+@utility h2 {
+  @apply text-[24px] leading-[36px] font-bold;
+}
+@utility h3 {
+  @apply text-[20px] leading-[28px] font-semibold;
+}
+@utility h4 {
+  @apply text-[18px] leading-[20px] font-medium;
+}
+@utility h5 {
+  @apply text-[16px] leading-[24px] font-semibold;
+}
 
-@utility subtitle-1 { @apply text-[16px] leading-[24px] font-medium; }
-@utility subtitle-2 { @apply text-[14px] leading-[20px] font-semibold; }
+@utility subtitle-1 {
+  @apply text-[16px] leading-[24px] font-medium;
+}
+@utility subtitle-2 {
+  @apply text-[14px] leading-[20px] font-semibold;
+}
 
-@utility body-1 { @apply text-[16px] leading-[24px] font-normal; }
-@utility body-2 { @apply text-[14px] leading-[20px] font-normal; }
+@utility body-1 {
+  @apply text-[16px] leading-[24px] font-normal;
+}
+@utility body-2 {
+  @apply text-[14px] leading-[20px] font-normal;
+}
 
-@utility button { @apply text-[14px] leading-[20px] font-medium; }
-@utility caption { @apply text-[12px] leading-[16px] font-normal; }
-@utility overline { @apply text-[10px] leading-[14px] font-normal; }
+@utility button {
+  @apply text-[14px] leading-[20px] font-medium;
+}
+@utility caption {
+  @apply text-[12px] leading-[16px] font-normal;
+}
+@utility overline {
+  @apply text-[10px] leading-[14px] font-normal;
+}
 
 /* ================================
    HELPERS
@@ -131,11 +155,11 @@
 }
 
 @utility shad-form-item {
-  @apply flex h-[78px] flex-col justify-center rounded-xl border border-light-300 px-4 shadow-drop-1;
+  @apply flex h-[78px] flex-col justify-center rounded-xl border border-light-300 px-4 !shadow-drop-1;
 }
 
 @utility shad-form-label {
-  @apply text-light-100 pt-2 body-2 w-full;
+  @apply text-light-100 pt-2 pl-2 body-2 w-full;
 }
 
 @utility shad-form-message {
@@ -328,7 +352,7 @@
 }
 
 @utility form-submit-button {
-  @apply primary-btn h-[66px];
+  @apply !primary-btn !h-[66px];
 }
 
 @utility error-message {
