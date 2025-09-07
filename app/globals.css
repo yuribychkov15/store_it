@@ -7,7 +7,7 @@
 @theme {
   /* Colors */
   --color-dark-200: #1e2238;
-  --color-light-100: #a1a1aa;
+  --color-light-100: #000000;
   --color-light-200: #d4d4d8;
   --color-light-300: #e4e4e7;
   --color-light-400: #f4f4f5;
@@ -43,6 +43,10 @@
 
   .recharts-responsive-container {
     height: initial !important;
+  }
+
+  .font-poppins {
+    font-family: var(--font-poppins), sans-serif;
   }
 }
 
@@ -151,11 +155,11 @@
 }
 
 @utility shad-input {
-  @apply border-none shadow-none p-0 placeholder:text-light-200 body-2 shad-no-focus;
+  @apply border-none !shadow-none p-0 placeholder:text-light-200 body-2 shad-no-focus;
 }
 
 @utility shad-form-item {
-  @apply flex h-[78px] flex-col justify-center rounded-xl border border-light-300 px-4 !shadow-drop-1;
+  @apply flex h-[78px] flex-col justify-center rounded-xl border border-light-300 px-4 shadow-drop-1;
 }
 
 @utility shad-form-label {
