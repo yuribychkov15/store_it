@@ -20,12 +20,6 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 
-const formSchema = z.object({
-  fullName: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
-});
-
 type FormType = "sign-in" | "sign-up";
 
 const authFormSchema = (formType: FormType) => {

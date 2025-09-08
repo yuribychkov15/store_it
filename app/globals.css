@@ -163,7 +163,7 @@
 }
 
 @utility shad-form-label {
-  @apply text-light-100 pt-2 pl-2 body-2 w-full;
+  @apply text-light-100 pt-2 pl-3 body-2 w-full;
 }
 
 @utility shad-form-message {
